@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: If you use these results, please cite this snapshot.
+type: dataset
+title: BI Bench
+version: "2026-08"
+authors:
+  - name: Basedash
+    website: "https://www.basedash.com"
+url: "https://github.com/Basedash/bi-bench"
+repository-code: "https://github.com/Basedash/bi-bench"
+license: CC-BY-4.0
+references:
+  - type: generic
+    title: BI Bench results on basedash.com
+    url: "https://www.basedash.com/bi-bench"

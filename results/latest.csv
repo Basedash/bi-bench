@@ -1,0 +1,12 @@
+rank,tool,accuracy_percent,avg_response_time_seconds
+1,Basedash,92.1,28.6
+2,Codex,90.9,54.3
+3,Hex,80.6,198.2
+4,Claude Code,78.0,118.5
+5,TextQL,64.7,134.5
+6,Querio,54.9,255.7
+7,Julius,46.1,68.1
+8,Sigma,35.2,42.6
+9,Lightdash,23.8,82.1
+10,Snowflake Cortex,19.2,19.0
+11,Metabase,12.4,40.9
