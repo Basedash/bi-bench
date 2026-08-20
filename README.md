@@ -1,20 +1,24 @@
 # BI Bench
 
-Aggregated results from [BI Bench](https://www.basedash.com/bi-bench), Basedash's first-party benchmark of AI data analyst agents on hard business-intelligence questions against a real, messy production-style database.
+**BI Bench** evaluates AI data analyst agents on real business-intelligence work: answering hard questions against a production-style database with a large, ambiguous schema.
 
-Most AI-agent benchmarks measure code generation or general reasoning. BI Bench measures something narrower: can an agent sit down in front of a complicated schema and return a correct answer to a difficult BI question, in a reasonable amount of time?
+Coding and general-reasoning benchmarks do not measure this. A model that writes Python well can still join the wrong table, miss a grain, or take four minutes to return a number. BI Bench scores both **accuracy** and **latency** under a single, fixed protocol.
 
-This repository is a citable snapshot of the **published scores**. It does not include the questions, the database, transcripts, or the grading rubric.
+| | |
+| --- | --- |
+| Snapshot | 2026-08 |
+| Tools | 11 |
+| Metrics | Accuracy (% of grading criteria met), mean wall-clock time per task |
+| Configuration | Each product's default out-of-the-box setup |
+| Results | [results/latest.json](results/latest.json) · [results/latest.csv](results/latest.csv) |
+| License | [CC BY 4.0](LICENSE) |
+| Writeup | [basedash.com/bi-bench](https://www.basedash.com/bi-bench) |
 
-- Narrative writeup: https://www.basedash.com/bi-bench
-- License: [CC BY 4.0](LICENSE)
-- Machine-readable results: [results/latest.json](results/latest.json), [results/latest.csv](results/latest.csv)
+Maintained by [Basedash](https://www.basedash.com).
 
-Basedash builds one of the products in this comparison. Treat this as a first-party benchmark, not an independent bake-off.
+## Results
 
-## Current snapshot (2026-08)
-
-11 tools, same database, same questions, default settings for each product.
+Every system answered the same questions on the same database.
 
 | Rank | Tool | Accuracy | Avg. response time |
 | ---: | --- | ---: | ---: |
@@ -30,39 +34,61 @@ Basedash builds one of the products in this comparison. Treat this as a first-pa
 | 10 | Snowflake Cortex | 19.2% | 19.0s |
 | 11 | Metabase | 12.4% | 40.9s |
 
-Basedash ranked first: 92.1% accuracy at 28.6 seconds per task, nearly twice as fast as Codex (90.9%, 54.3s), the next most accurate agent. Snowflake Cortex was the fastest overall (19.0s) with 19.2% accuracy.
+Basedash is first on accuracy (92.1%) at 28.6 seconds per task — about 1.9× faster than Codex, which is second on accuracy (90.9%, 54.3s). Hex is third on accuracy (80.6%) at 198.2s. Snowflake Cortex is the fastest system in the set (19.0s) at 19.2% accuracy. Querio is the slowest (255.7s).
 
-Numbers are a snapshot, not a final ranking. Tools change; we re-run as they evolve.
+The Pareto picture is the point: speed without accuracy and accuracy without speed are different products. The top-right of that chart is Basedash.
 
-## How the run works
+## Method
 
-High-level only, matching the public writeup.
+The protocol is the same for every system.
 
-1. **Connect.** Each agent is connected to the same real database with a large, complicated schema. The schema is not simplified. Several tables look plausible; the right answer depends on using the correct ones and joining them correctly.
-2. **Run.** Every agent gets the same set of difficult, multi-step BI questions. Responses are captured verbatim, with wall-clock time.
-3. **Evaluate.** Every response is graded against a fixed set of criteria covering correctness, use of the right tables and joins, and whether the answer matches the question. Accuracy is the share of those criteria met. Response time is mean wall-clock time per task.
+### Environment
 
-Each tool is run with its default user experience (default model, reasoning effort, memory, context, skills, semantic layer behavior, and anything else that ships out of the box). This is not a tuned bake-off.
+Each agent is connected to one shared, real database. The schema is production-grade and intentionally hard: many tables look like the right one, and correct answers depend on picking the right relations and joining them correctly. We do not hand agents a curated subset of tables or a simplified warehouse.
 
-This is not a complete map of the category. Some tools disallow benchmarking in their terms. Others do not have self-serve onboarding that lets us run the same setup independently.
+### Tasks
 
-## What is not in this repo
+The prompt set is a battery of difficult, multi-step BI questions of the kind a data team actually fields — ambiguous, join-heavy, and easy to get *almost* right. Every agent receives the identical set, in the same order of evaluation.
 
-- Question text or prompts
-- Database schema, dumps, or ERDs
-- Per-question or per-criterion scores
-- Agent transcripts
-- The grading rubric beyond the summary above
+### Execution
 
-## Include another tool
+We run each product as a new team would: default model, default reasoning effort, default memory/context, default skills, and default semantic-layer behavior where those controls exist. Responses are captured verbatim. Timing is wall-clock from request to completed answer.
 
-If you build one of these products and want a run or re-run, email [support@basedash.com](mailto:support@basedash.com).
+Some products expose knobs that can improve a specialist bake-off. Those are left at defaults so the comparison reflects first-run experience, not a tuned lab setup.
 
-## Cite
+### Scoring
+
+Every response is scored against a **fixed** criteria set applied uniformly across tools:
+
+- **Correctness** of the result
+- **Right tables and joins** for the question
+- **Faithfulness** to what was asked
+
+**Accuracy** is the share of those criteria the response meets. **Response time** is mean wall-clock seconds per task. Nothing is hand-scored differently from one agent to the next.
+
+## Systems
+
+The 2026-08 snapshot includes Basedash, Codex, Hex, Claude Code, TextQL, Querio, Julius, Sigma, Lightdash, Snowflake Cortex, and Metabase.
+
+Coverage is the set of AI data analysts we could run under the same protocol. Vendors that prohibit independent benchmarking, or that have no self-serve path to connect the same database, are omitted rather than scored from docs or demos.
+
+Vendors who want a run or a re-run: [support@basedash.com](mailto:support@basedash.com).
+
+## Data
+
+This repo versions the leaderboard so it can be cited and parsed.
+
+| File | Format |
+| --- | --- |
+| [results/latest.json](results/latest.json) | Rank, tool, `accuracy_percent`, `avg_response_time_seconds` |
+| [results/latest.csv](results/latest.csv) | Same columns |
+
+`snapshot` in the JSON is `2026-08`. We re-run as products change and keep this file as the current published scores.
+
+## Citation
 
 ```
-Basedash. BI Bench (2026-08 snapshot). https://github.com/Basedash/bi-bench
-Also: https://www.basedash.com/bi-bench
+Basedash. (2026). BI Bench (2026-08 snapshot). https://github.com/Basedash/bi-bench
 ```
 
 ```bibtex
@@ -71,6 +97,8 @@ Also: https://www.basedash.com/bi-bench
   author       = {{Basedash}},
   year         = {2026},
   howpublished = {\url{https://github.com/Basedash/bi-bench}},
-  note         = {2026-08 snapshot of aggregated AI data analyst results. Writeup: https://www.basedash.com/bi-bench}
+  note         = {2026-08 snapshot}
 }
 ```
+
+See also [CITATION.cff](CITATION.cff) and the long-form writeup at [basedash.com/bi-bench](https://www.basedash.com/bi-bench).
