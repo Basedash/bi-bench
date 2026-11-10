@@ -1,15 +1,15 @@
 {
-  "snapshot": "2026-08",
+  "snapshot": "2026-11",
   "name": "BI Bench",
   "source": "https://www.basedash.com/bi-bench",
   "repository": "https://github.com/Basedash/bi-bench",
-  "notes": "Aggregated scores only. Questions, schema, transcripts, and the grading rubric are not published.",
+  "notes": "Aggregated scores only. Questions, schema, transcripts, and the grading rubric are not published. Basedash was re-run in 2026-11 after improvements to the agent; all other tools' figures are carried over from the 2026-08 snapshot.",
   "metrics": {
     "accuracy_percent": "Share of fixed grading criteria met, as a percentage",
     "avg_response_time_seconds": "Mean wall-clock time per task"
   },
   "results": [
-    {"rank": 1, "tool": "Basedash", "accuracy_percent": 92.1, "avg_response_time_seconds": 28.6},
+    {"rank": 1, "tool": "Basedash", "accuracy_percent": 95.8, "avg_response_time_seconds": 20.9},
     {"rank": 2, "tool": "Codex", "accuracy_percent": 90.9, "avg_response_time_seconds": 54.3},
     {"rank": 3, "tool": "Hex", "accuracy_percent": 80.6, "avg_response_time_seconds": 198.2},
     {"rank": 4, "tool": "Claude Code", "accuracy_percent": 78.0, "avg_response_time_seconds": 118.5},
