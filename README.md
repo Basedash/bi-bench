@@ -6,7 +6,7 @@ Coding and general-reasoning benchmarks do not measure this. A model that writes
 
 | | |
 | --- | --- |
-| Snapshot | 2026-08 |
+| Snapshot | 2026-11 |
 | Tools | 11 |
 | Metrics | Accuracy (% of grading criteria met), mean wall-clock time per task |
 | Configuration | Each product's default out-of-the-box setup |
@@ -22,7 +22,7 @@ Every system answered the same questions on the same database.
 
 | Rank | Tool | Accuracy | Avg. response time |
 | ---: | --- | ---: | ---: |
-| 1 | Basedash | 92.1% | 28.6s |
+| 1 | Basedash | 95.8% | 20.9s |
 | 2 | Codex | 90.9% | 54.3s |
 | 3 | Hex | 80.6% | 198.2s |
 | 4 | Claude Code | 78.0% | 118.5s |
@@ -34,7 +34,9 @@ Every system answered the same questions on the same database.
 | 10 | Snowflake Cortex | 19.2% | 19.0s |
 | 11 | Metabase | 12.4% | 40.9s |
 
-Basedash is first on accuracy (92.1%) at 28.6 seconds per task — about 1.9× faster than Codex, which is second on accuracy (90.9%, 54.3s). Hex is third on accuracy (80.6%) at 198.2s. Snowflake Cortex is the fastest system in the set (19.0s) at 19.2% accuracy. Querio is the slowest (255.7s).
+Basedash's figures are the mean of 5 runs (see [Repeated runs](#repeated-runs)). All other tools' figures are unchanged from the 2026-08 snapshot.
+
+Basedash is first on accuracy (95.8%) at 20.9 seconds per task — about 2.6× faster than Codex, which is second on accuracy (90.9%, 54.3s). Hex is third on accuracy (80.6%) at 198.2s. Snowflake Cortex is the fastest system in the set (19.0s) at 19.2% accuracy. Querio is the slowest (255.7s).
 
 The Pareto picture is the point: speed without accuracy and accuracy without speed are different products. The top-right of that chart is Basedash.
 
@@ -56,6 +58,10 @@ We run each product as a new team would: default model, default reasoning effort
 
 Some products expose knobs that can improve a specialist bake-off. Those are left at defaults so the comparison reflects first-run experience, not a tuned lab setup.
 
+### Repeated runs
+
+Basedash's published figure is the **mean of 5 full runs** of the task set, never the best run. The current figure comes from 5 runs on 2026-11-10 with the current Basedash agent, default settings, and model gpt-6.1-sol. Per-run accuracy was 96.97%, 96.97%, 95.45%, 93.94%, and 95.45% (mean 95.8%), and average response time was 20.9s per task.
+
 ### Scoring
 
 Every response is scored against a **fixed** criteria set applied uniformly across tools:
@@ -68,7 +74,7 @@ Every response is scored against a **fixed** criteria set applied uniformly acro
 
 ## Systems
 
-The 2026-08 snapshot includes Basedash, Codex, Hex, Claude Code, TextQL, Querio, Julius, Sigma, Lightdash, Snowflake Cortex, and Metabase.
+The 2026-11 snapshot includes Basedash, Codex, Hex, Claude Code, TextQL, Querio, Julius, Sigma, Lightdash, Snowflake Cortex, and Metabase.
 
 Coverage is the set of AI data analysts we could run under the same protocol. Vendors that prohibit independent benchmarking, or that have no self-serve path to connect the same database, are omitted rather than scored from docs or demos.
 
@@ -83,12 +89,17 @@ This repo versions the leaderboard so it can be cited and parsed.
 | [results/latest.json](results/latest.json) | Rank, tool, `accuracy_percent`, `avg_response_time_seconds` |
 | [results/latest.csv](results/latest.csv) | Same columns |
 
-`snapshot` in the JSON is `2026-08`. We re-run as products change and keep this file as the current published scores.
+`snapshot` in the JSON is `2026-11`. We re-run as products change and keep this file as the current published scores.
+
+### Snapshot history
+
+- **2026-11**: Replaced Basedash's entry with the mean of 5 runs from 2026-11-10 (95.8%, 20.9s). The 2026-08 entry (92.1%, 28.6s) was the single best gpt-5.4 run from 2026-06-24, not a mean. All other tools are unchanged, and the rankings did not change.
+- **2026-08**: First published snapshot.
 
 ## Citation
 
 ```
-Basedash. (2026). BI Bench (2026-08 snapshot). https://github.com/Basedash/bi-bench
+Basedash. (2026). BI Bench (2026-11 snapshot). https://github.com/Basedash/bi-bench
 ```
 
 ```bibtex
@@ -97,7 +108,7 @@ Basedash. (2026). BI Bench (2026-08 snapshot). https://github.com/Basedash/bi-be
   author       = {{Basedash}},
   year         = {2026},
   howpublished = {\url{https://github.com/Basedash/bi-bench}},
-  note         = {2026-08 snapshot}
+  note         = {2026-11 snapshot}
 }
 ```
 
