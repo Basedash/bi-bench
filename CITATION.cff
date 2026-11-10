@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: If you use these results, please cite this snapshot.
 type: dataset
 title: BI Bench
-version: "2026-08"
+version: "2026-11"
 authors:
   - name: Basedash
     website: "https://www.basedash.com"

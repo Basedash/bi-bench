@@ -1,5 +1,5 @@
 rank,tool,accuracy_percent,avg_response_time_seconds
-1,Basedash,92.1,28.6
+1,Basedash,95.8,20.9
 2,Codex,90.9,54.3
 3,Hex,80.6,198.2
 4,Claude Code,78.0,118.5
