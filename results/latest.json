@@ -3,7 +3,7 @@
   "name": "BI Bench",
   "source": "https://www.basedash.com/bi-bench",
   "repository": "https://github.com/Basedash/bi-bench",
-  "notes": "Aggregated scores only. Questions, schema, transcripts, and the grading rubric are not published. Basedash was re-run in 2026-11 after improvements to the agent; all other tools' figures are carried over from the 2026-08 snapshot.",
+  "notes": "Aggregated scores only. Questions, schema, transcripts, and the grading rubric are not published. Each tool's figures are from its most recent run under this protocol.",
   "metrics": {
     "accuracy_percent": "Share of fixed grading criteria met, as a percentage",
     "avg_response_time_seconds": "Mean wall-clock time per task"

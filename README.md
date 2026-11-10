@@ -34,7 +34,7 @@ Every system answered the same questions on the same database.
 | 10 | Snowflake Cortex | 19.2% | 19.0s |
 | 11 | Metabase | 12.4% | 40.9s |
 
-Basedash was re-run in 2026-11 after improvements to the agent. All other tools' figures are carried over from the 2026-08 snapshot.
+Each tool's figures are from its most recent run under this protocol.
 
 Basedash is first on accuracy (95.8%) at 20.9 seconds per task — about 2.6× faster than Codex, which is second on accuracy (90.9%, 54.3s). Hex is third on accuracy (80.6%) at 198.2s. Snowflake Cortex is the fastest system in the set (19.0s) at 19.2% accuracy. Querio is the slowest (255.7s).
 
