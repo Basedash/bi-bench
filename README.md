@@ -24,19 +24,19 @@ Every system answered the same questions on the same database.
 | ---: | --- | ---: | ---: |
 | 1 | Basedash | 95.8% | 20.9s |
 | 2 | Codex | 90.9% | 54.3s |
-| 3 | Hex | 80.6% | 198.2s |
-| 4 | Claude Code | 78.0% | 118.5s |
-| 5 | TextQL | 64.7% | 134.5s |
-| 6 | Querio | 54.9% | 255.7s |
-| 7 | Julius | 46.1% | 68.1s |
-| 8 | Sigma | 35.2% | 42.6s |
-| 9 | Lightdash | 23.8% | 82.1s |
-| 10 | Snowflake Cortex | 19.2% | 19.0s |
+| 3 | Snowflake CoWork | 81.1% | 55.5s |
+| 4 | Hex | 80.6% | 198.2s |
+| 5 | Claude Code | 78.0% | 118.5s |
+| 6 | TextQL | 64.7% | 134.5s |
+| 7 | Querio | 54.9% | 255.7s |
+| 8 | Julius | 46.1% | 68.1s |
+| 9 | Sigma | 35.2% | 42.6s |
+| 10 | Lightdash | 23.8% | 82.1s |
 | 11 | Metabase | 12.4% | 40.9s |
 
 Each tool's figures are from its most recent run under this protocol.
 
-Basedash is first on accuracy (95.8%) at 20.9 seconds per task — about 2.6× faster than Codex, which is second on accuracy (90.9%, 54.3s). Hex is third on accuracy (80.6%) at 198.2s. Snowflake Cortex is the fastest system in the set (19.0s) at 19.2% accuracy. Querio is the slowest (255.7s).
+Basedash is first on accuracy (95.8%) at 20.9 seconds per task — about 2.6× faster than Codex, which is second on accuracy (90.9%, 54.3s). Snowflake CoWork is third on accuracy (81.1%) at 55.5s. Basedash is also the fastest system in the set. Querio is the slowest (255.7s).
 
 The Pareto picture is the point: speed without accuracy and accuracy without speed are different products. The top-right of that chart is Basedash.
 
@@ -70,7 +70,7 @@ Every response is scored against a **fixed** criteria set applied uniformly acro
 
 ## Systems
 
-The 2026-11 snapshot includes Basedash, Codex, Hex, Claude Code, TextQL, Querio, Julius, Sigma, Lightdash, Snowflake Cortex, and Metabase.
+The 2026-11 snapshot includes Basedash, Codex, Snowflake CoWork, Hex, Claude Code, TextQL, Querio, Julius, Sigma, Lightdash, and Metabase.
 
 Coverage is the set of AI data analysts we could run under the same protocol. Vendors that prohibit independent benchmarking, or that have no self-serve path to connect the same database, are omitted rather than scored from docs or demos.
 
