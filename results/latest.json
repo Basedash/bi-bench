@@ -3,7 +3,7 @@
   "name": "BI Bench",
   "source": "https://www.basedash.com/bi-bench",
   "repository": "https://github.com/Basedash/bi-bench",
-  "notes": "Aggregated scores only. Questions, schema, transcripts, and the grading rubric are not published. Basedash was re-run in 2026-11 after improvements to the agent; all other tools' figures are carried over from the 2026-08 snapshot.",
+  "notes": "Aggregated scores only. Questions, schema, transcripts, and the grading rubric are not published. Each tool's figures are from its most recent run under this protocol.",
   "metrics": {
     "accuracy_percent": "Share of fixed grading criteria met, as a percentage",
     "avg_response_time_seconds": "Mean wall-clock time per task"
@@ -11,14 +11,14 @@
   "results": [
     {"rank": 1, "tool": "Basedash", "accuracy_percent": 95.8, "avg_response_time_seconds": 20.9},
     {"rank": 2, "tool": "Codex", "accuracy_percent": 90.9, "avg_response_time_seconds": 54.3},
-    {"rank": 3, "tool": "Hex", "accuracy_percent": 80.6, "avg_response_time_seconds": 198.2},
-    {"rank": 4, "tool": "Claude Code", "accuracy_percent": 78.0, "avg_response_time_seconds": 118.5},
-    {"rank": 5, "tool": "TextQL", "accuracy_percent": 64.7, "avg_response_time_seconds": 134.5},
-    {"rank": 6, "tool": "Querio", "accuracy_percent": 54.9, "avg_response_time_seconds": 255.7},
-    {"rank": 7, "tool": "Julius", "accuracy_percent": 46.1, "avg_response_time_seconds": 68.1},
-    {"rank": 8, "tool": "Sigma", "accuracy_percent": 35.2, "avg_response_time_seconds": 42.6},
-    {"rank": 9, "tool": "Lightdash", "accuracy_percent": 23.8, "avg_response_time_seconds": 82.1},
-    {"rank": 10, "tool": "Snowflake Cortex", "accuracy_percent": 19.2, "avg_response_time_seconds": 19.0},
+    {"rank": 3, "tool": "Snowflake CoWork", "accuracy_percent": 81.1, "avg_response_time_seconds": 55.5},
+    {"rank": 4, "tool": "Hex", "accuracy_percent": 80.6, "avg_response_time_seconds": 198.2},
+    {"rank": 5, "tool": "Claude Code", "accuracy_percent": 78.0, "avg_response_time_seconds": 118.5},
+    {"rank": 6, "tool": "TextQL", "accuracy_percent": 64.7, "avg_response_time_seconds": 134.5},
+    {"rank": 7, "tool": "Querio", "accuracy_percent": 54.9, "avg_response_time_seconds": 255.7},
+    {"rank": 8, "tool": "Julius", "accuracy_percent": 46.1, "avg_response_time_seconds": 68.1},
+    {"rank": 9, "tool": "Sigma", "accuracy_percent": 35.2, "avg_response_time_seconds": 42.6},
+    {"rank": 10, "tool": "Lightdash", "accuracy_percent": 23.8, "avg_response_time_seconds": 82.1},
     {"rank": 11, "tool": "Metabase", "accuracy_percent": 12.4, "avg_response_time_seconds": 40.9}
   ]
 }
